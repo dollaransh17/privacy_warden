@@ -1,0 +1,14 @@
+{
+  "name": "Privacy Warden",
+  "description": "Glanceable privacy posture for the device you're designing on. Six on-device watchdogs, plain-language alerts, zero telemetry.",
+  "version": "0.1.0",
+  "appOrigin": "https://localhost:8080",
+  "permissions": [
+    "design:read"
+  ],
+  "icon": "icon.png",
+  "categories": [
+    "productivity",
+    "utilities"
+  ]
+}

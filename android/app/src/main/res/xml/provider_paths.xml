@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Paths exposed by androidx FileProvider (authority "${applicationId}.fileprovider").
+
+  AnalysisReportGenerator writes its PDF into externalCacheDir/reports so that
+  the system share sheet can attach it without needing WRITE_EXTERNAL_STORAGE.
+  We only expose that single sub-path so nothing else on the device ever leaks.
+-->
+<paths>
+    <external-cache-path
+        name="reports"
+        path="reports/" />
+    <cache-path
+        name="cache_reports"
+        path="reports/" />
+</paths>

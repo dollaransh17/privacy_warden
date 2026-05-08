@@ -1,0 +1,31 @@
+services:
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+
+  tank:
+    build: ./tank
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "8443:8443"
+    volumes:
+      - ./tank/data:/app/data
+      - ./tank/keys:/app/keys
+      - ./tank/models:/app/models
+      - ./openclaw:/app/openclaw
+    depends_on: [redis]
+
+  dashboard:
+    build: ./dashboard
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_TANK_URL=http://tank:8443
+    depends_on: [tank]
+
+volumes:
+  redis-data:
